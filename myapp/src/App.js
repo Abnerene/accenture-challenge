@@ -1,7 +1,8 @@
 import React from "react"
 import ApiContextProvider from "./context/ApiContext";
 import Navbar from "./components/Navbar";
-import Posts from "./components/Posts";
+import Posts from "./components/Posts/index.";
+
 function App() {
   return (
       <ApiContextProvider>

@@ -1,7 +1,8 @@
 import { useContext} from "react";
-import { ApiContext } from "../context/ApiContext";
+import { ApiContext } from "../../context/ApiContext";
 import {Cube} from 'styled-loaders-react'
-import Post from "./Post";
+import Post from "../Post";
+import './Posts.css'
 
 export default function Posts() {
     const {state, loading} = useContext(ApiContext)
@@ -10,7 +11,7 @@ export default function Posts() {
         content = <div> <Cube color="black" size="50px" /> </div>
     }else{
         content =(
-            <div>
+            <div className="posts-container">
                 {state.map(result =>
                     <Post key={result.id} value={result}></Post>
                 )}
