@@ -5,3 +5,12 @@
     padding: 10%;
 
 }
+
+.post-item h1{
+    line-height: 1;
+    text-transform: capitalize;
+}
+
+.posts-item p{
+    text-transform: capitalize;
+}

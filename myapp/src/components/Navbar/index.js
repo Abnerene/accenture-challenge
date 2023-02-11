@@ -1,10 +1,15 @@
 import React from "react";
-
+import './Navbar.css'
 export default function Navbar(){
+    const categories = ['All','Travelled','Lifestyle','Bussines','Food','Work']
     return (
-        <div className="w-full flex justify-between py-10">
-            <h1>ReactAPI</h1>
-        </div>
+        <nav className="filter-container">
+            <ul>
+                {categories.map( category => 
+                    <li className="category-item">{category}</li>
+                    )}
+            </ul>
+        </nav>
         
     )
 }
