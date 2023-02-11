@@ -1,14 +1,15 @@
 import React from "react"
+import ApiContextProvider from "./context/ApiContext";
 import Navbar from "./components/Navbar";
-
+import Posts from "./components/Posts";
 function App() {
   return (
-      <div className="text-3xl font-bold underline">
-      <Navbar />
-     
-      </div>
-
-      
+      <ApiContextProvider>
+        <div className="w-3/5 mx-auto">
+        <Navbar />
+        <Posts />
+        </div>
+      </ApiContextProvider>
   );
 }
 
