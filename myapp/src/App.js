@@ -14,11 +14,12 @@ function App() {
 
   return (
       <>
-        <ApiContextProvider>
+      
           <ButtonNewPost openWindowNewPost={openWindowNewPost}  />
           <NewPost  windowNewPost={windowNewPost} openWindowNewPost={openWindowNewPost} />
           <Navbar filter={filter} setFilter={setFilter}  />
-          <Posts filter={filter} />
+        <ApiContextProvider>
+          <Posts filter={filter} newPost={true} />
         </ApiContextProvider>
       </>
   );
