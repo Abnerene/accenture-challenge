@@ -16,3 +16,7 @@ body{
 .capitalize{
     text-transform: capitalize;
 }
+
+.flex{
+    display: flex;
+}
