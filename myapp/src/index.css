@@ -8,6 +8,10 @@ body{
     font-family: 'Hanken Grotesk', sans-serif;
     
 }
+input,select,textarea{
+    font-family: 'Hanken Grotesk', sans-serif;
+
+}
 
 .upper{
     text-transform: uppercase;
@@ -43,4 +47,37 @@ body{
     flex-direction: column;
     box-sizing: border-box;
     text-align: center;
+}
+
+.pop-up-buttons{
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+
+.button{
+    font-family: 'Hanken Grotesk', sans-serif;
+    transition: .4s;
+    border-radius: 5px;
+    width: 40%;    
+    border: 0px !important;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.button:hover{
+    transition: .4s;
+    opacity: .8;
+    cursor: pointer;
+    
+}
+
+.white{
+    color: white;
+}
+.BGred{
+    background-color: rgb(204, 57, 57);
 }
