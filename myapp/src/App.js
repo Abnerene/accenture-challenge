@@ -10,14 +10,14 @@ function App() {
   
   const [windowNewPost,openWindowNewPost] = useState(false)
   const [filter,setFilter] = useState('all')
-
+  
 
   return (
       <>
         <ApiContextProvider>
           <ButtonNewPost openWindowNewPost={openWindowNewPost}  />
           <NewPost  windowNewPost={windowNewPost} openWindowNewPost={openWindowNewPost} />
-          <Navbar setFilter={setFilter}  />
+          <Navbar filter={filter} setFilter={setFilter}  />
           <Posts filter={filter} />
         </ApiContextProvider>
       </>
