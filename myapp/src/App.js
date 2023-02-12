@@ -19,7 +19,7 @@ function App() {
           <NewPost  windowNewPost={windowNewPost} openWindowNewPost={openWindowNewPost} />
           <Navbar filter={filter} setFilter={setFilter}  />
         <ApiContextProvider>
-          <Posts filter={filter} newPost={true} />
+          <Posts filter={filter} />
         </ApiContextProvider>
       </>
   );

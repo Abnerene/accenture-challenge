@@ -37,13 +37,11 @@ export default function ApiContextProvider(props){
                 console.log(error)
                 setLoading(false)
             })
-            setState(POSTS())
        
 
     
     },[])
 
-    console.log(props)
    
         return (
 

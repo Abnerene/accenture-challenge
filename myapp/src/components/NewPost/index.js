@@ -16,7 +16,7 @@ export default function NewPost({windowNewPost,openWindowNewPost}) {
         category: form.querySelector("select[name='category']").value,
         userId:100
     }
-    setNewPost(data)
+    setNewPost(data,openWindowNewPost)
      
   }
   

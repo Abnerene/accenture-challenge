@@ -5,14 +5,10 @@ import Post from "../Post";
 import './Posts.css'
 import { POSTS } from "../../services/settings";
 
-export default function Posts({filter, newPost}) {
-    const {state,setState,loading,setLoading} = useContext(ApiContext)
+export default function Posts({filter}) {
+    const {state,loading} = useContext(ApiContext)
     let content = null;
-  
-    if(newPost){
-    //     setLoading(true)
-    //     // setState(POSTS())
-    }
+
 
     if(loading){
         content = <div> <Cube color="black" size="50px" /> </div>
