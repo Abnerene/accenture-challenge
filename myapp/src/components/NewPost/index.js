@@ -12,7 +12,7 @@ export default function NewPost({windowNewPost,openWindowNewPost}) {
     
     const data ={
         title: form.querySelector("input[name='title']").value,
-        description: form.querySelector("input[name='description']").value,
+        body: form.querySelector("input[name='description']").value,
         category: form.querySelector("select[name='category']").value,
         userId:100
     }
