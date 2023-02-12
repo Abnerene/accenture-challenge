@@ -10,7 +10,7 @@ export default function Post({value}){
                 <h1 className="text-lg capitalize">{value.title}</h1>
                 <div>3 Coments</div>   
                 <p>{value.body}</p>
-                <div>{value.category}</div> 
+                <div className="capitalize">{value.category}</div> 
             </div>
         </div>
     )

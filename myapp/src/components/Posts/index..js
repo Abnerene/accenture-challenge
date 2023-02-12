@@ -11,7 +11,7 @@ export default function Posts({filter}) {
     if(loading){
         content = <div> <Cube color="black" size="50px" /> </div>
     }else{
-        console.log(filter)
+       
         content =(
             <div className="posts-container">
                 {

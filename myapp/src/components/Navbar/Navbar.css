@@ -28,11 +28,12 @@
     padding: 10px;
     box-sizing: border-box;
     display: inline-block;
+    text-transform: capitalize;
 }
 
 .category-item:hover{
     transition: .4s;
-    background-color: lightgrey;;
+    background-color: rgb(243, 243, 243);
     cursor: pointer;
 }
 

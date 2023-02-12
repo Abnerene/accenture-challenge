@@ -1,35 +1,34 @@
 import React, { useState, createContext, useEffect } from 'react'
 import axios from 'axios'
-import { CATEGORIES } from '../services/settings'
+import { CATEGORIES,POSTS } from '../services/settings'
 export const ApiContext= createContext()
-
-const POSTS = () =>{
-    return JSON.parse(localStorage.getItem('posts'))
-}
 
 
 export default function ApiContextProvider(props){
-    const [state,setState] = useState({})
+    const [state,setState] = useState(POSTS())
     const [loading,setLoading] = useState(true)
     
     useEffect(() =>{
-        // if(localStorage.getItem('posts')===null){
-            setLoading(true)
+        
+            setLoading(true)    
             axios
             .get("https://jsonplaceholder.typicode.com/posts")
             .then(response => {
-                
-                let posts = response.data.map((post,index)=>{   
-                    const p = Math.floor(Math.random() * CATEGORIES.length)                
-                    post.category = CATEGORIES[ p === 0?1:p ]
-                    return index < 12 ? post : false
-                    }
-                ).filter((value) => value)
-                console.log(posts)
-                
-                localStorage.setItem('posts',
-                JSON.stringify(posts)
-                )
+                if(Object.entries(state).length === 0){
+                    let posts = response.data
+                        .filter((post,index) => index < 6)
+                        .map((post,index)=>{   
+                        const p = Math.floor(Math.random() * CATEGORIES.length)                
+                        post.category = CATEGORIES[ p === 0?1:p ]
+                        return post
+                        }
+                    ).filter((value) => value)
+                    console.log(posts)
+                    
+                    localStorage.setItem('posts',
+                    JSON.stringify(posts)
+                    )
+                }
 
                 setState(POSTS())
                 setLoading(false)
@@ -38,7 +37,7 @@ export default function ApiContextProvider(props){
                 console.log(error)
                 setLoading(false)
             })
-        // }
+       
 
     
     },[])
@@ -51,3 +50,60 @@ export default function ApiContextProvider(props){
 
         )
 }
+
+
+// import React, { useState, createContext, useEffect } from 'react'
+// import axios from 'axios'
+// import { CATEGORIES, POSTS } from '../services/settings'
+
+// export const ApiContext= createContext()
+
+
+// export default function ApiContextProvider(props){
+//     const [state,setState] = useState(POSTS())
+//     // const [loading,setLoading] = useState(!Object.entries(state).length === 0)
+//     const [loading,setLoading] = useState(false)
+
+//     console.log('estado actual',POSTS())
+    
+//     useEffect(() =>{
+//         console.log('VIN',state)
+//         // if(Object.entries(state).length === 0){
+//             setLoading(true)
+//             axios
+//             .get("https://jsonplaceholder.typicode.com/posts")
+//             .then(response => {
+                
+//                 let posts = response.data
+//                 .filter((value, index) => index < 12)
+//                 .map((post,index)=>{   
+//                     const p = Math.floor(Math.random() * CATEGORIES.length)                
+//                     post.category = CATEGORIES[ p === 0?1:p ]          
+//                     return  post 
+//                     }
+//                 )
+                
+//                 localStorage.setItem('posts',
+//                 JSON.stringify(posts)
+//                 )
+
+//                 setState(posts)
+//                 setLoading(false)
+//             })
+//             .catch(error => {
+//                 console.log(error)
+//                 setLoading(false)
+//             })
+//         // }
+
+    
+//     },[])
+   
+//         return (
+
+//             <ApiContext.Provider value={{state,loading}}>
+//                 {props.children}
+//             </ApiContext.Provider>
+
+//         )
+// }

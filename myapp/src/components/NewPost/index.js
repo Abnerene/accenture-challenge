@@ -1,17 +1,33 @@
 import React from "react";
 import { CATEGORIES } from "../../services/settings";
 import "./NewPost.css";
+import setNewPost from "../../services/newPost";
 
 export default function NewPost({windowNewPost,openWindowNewPost}) {
   let content = <div></div>;
+  
+  const handleSubmit = evt =>{
+    evt.preventDefault()
+    const form = evt.target
+    
+    const data ={
+        title: form.querySelector("input[name='title']").value,
+        description: form.querySelector("input[name='description']").value,
+        category: form.querySelector("select[name='category']").value,
+        userId:100
+    }
+    setNewPost(data)
+     
+  }
+  
   if (windowNewPost) {
     content = (
       <div className="out-pop-up">
-        <form className="pop-up">
+        <form action="" className="pop-up" onSubmit={handleSubmit} >
             <h4>Create Post</h4>
-            <input type='text' placeholder="Title" required />
-            <input type='text' placeholder="Description" required />
-            <select required>
+            <input name="title" type="text" placeholder="Title" required />
+            <input name="description" type="text" placeholder="Description" required />
+            <select name="category" required>
                 <option value={null}>category</option>
                 {
                     CATEGORIES.map(category =>
