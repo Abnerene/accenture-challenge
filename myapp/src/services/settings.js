@@ -5,8 +5,3 @@ export const POSTS = () =>{
     
 }
 
-// function addPost(data = false){
-//     if(data){
-//         console.log(POSTS.get)
-//     }
-// }

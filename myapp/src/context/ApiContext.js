@@ -16,14 +16,14 @@ export default function ApiContextProvider(props){
             .then(response => {
                 if(Object.entries(state).length === 0){
                     let posts = response.data
-                        .filter((post,index) => index < 6)
+                        .filter((post,index) => index < 12)
                         .map((post,index)=>{   
-                        const p = Math.floor(Math.random() * CATEGORIES.length)                
-                        post.category = CATEGORIES[ p === 0?1:p ]
-                        return post
+                            const p = Math.floor(Math.random() * CATEGORIES.length)                
+                            post.category = CATEGORIES[ p === 0?1:p ]
+                            return post
                         }
                     ).filter((value) => value)
-                    console.log(posts)
+                    // console.log(posts)
                     
                     localStorage.setItem('posts',
                     JSON.stringify(posts)
