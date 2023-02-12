@@ -18,7 +18,7 @@
 
 .buttonNewPost::before{
     color: white;
-    content: '🖋️';
+    content: '➕';
 }
 
 .buttonNewPost:hover{

@@ -4,6 +4,7 @@ export default function setNewPost(data,openWindowNewPost){
     if(data){
         if(data.category!=='category' ){
             data.id = POSTS().length +1
+           
             let posts = POSTS()
             posts.push(data)
             console.log(posts)
