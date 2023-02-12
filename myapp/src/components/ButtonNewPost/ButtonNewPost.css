@@ -1,0 +1,18 @@
+.buttonNewPost{
+    transition: .4s;
+    background-color: orange;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 10vh;
+    right: 10%;
+    z-index: 100;
+    border-radius: 50%;
+    content: 's';
+}
+
+.buttonNewPost:hover{
+    transition: .4s;
+    scale: .9;
+    cursor: pointer;
+}

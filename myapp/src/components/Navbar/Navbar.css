@@ -24,7 +24,6 @@
 
 .category-item{
     transition: .4s;
-    /* background-color: white; */
     border-right: 1px solid lightgrey;
     padding: 10px;
     box-sizing: border-box;

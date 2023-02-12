@@ -2,11 +2,16 @@ import React, {} from "react";
 import './Post.css'
 
 export default function Post({value}){
-   
+    // https://source.unsplash.com/random/?${value.category}&${value.id}
     return (
-        <div className="post-item" Style={`background-image: url('https://source.unsplash.com/random/??wallpaper,landscape&${value.id}')`} >
-            <h1 className="text-lg capitalize">{value.title}</h1>
-            <p>{value.body}</p>   
+        
+        <div className="post-item" Style={`background-image: url('')`} >
+            <div className="post-item-inside">
+                <h1 className="text-lg capitalize">{value.title}</h1>
+                <div>3 Coments</div>   
+                <p>{value.body}</p>
+                <div>{value.category}</div> 
+            </div>
         </div>
     )
 }

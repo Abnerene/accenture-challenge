@@ -1,0 +1,50 @@
+
+.out-pop-up{
+    transition: .4s;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+    background-color: rgba(40, 40, 40,.4); 
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.pop-up{
+    background-color: white;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+.pop-up input, select{
+    margin-top: 10px ;
+    box-sizing: border-box;
+    padding: 5px 0px;
+    outline: none;
+    border: 0px;
+    border-bottom: 1px solid lightgray;
+}
+
+.pop-up select{
+    text-transform: capitalize;
+}
+
+.pop-up-buttons{
+    width: 100%;
+    background-color: red;
+    display: flex;
+    justify-content: space-around;
+}
+.button{
+
+}
