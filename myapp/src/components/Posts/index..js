@@ -5,7 +5,7 @@ import Post from "../Post";
 import './Posts.css'
 import { POSTS } from "../../services/settings";
 
-export default function Posts({filter,setDeletePost}) {
+export default function Posts({filter,setDeletePost,openWindowNewPost}) {
     const {state,loading} = useContext(ApiContext)
     let content = null;
     
@@ -19,7 +19,7 @@ export default function Posts({filter,setDeletePost}) {
                 POSTS()
                 .filter(post => filter === 'all' ? true: post.category === filter  )
                 .map(post =>
-                    <Post key={post.id} value={post} setDeletePost={setDeletePost} ></Post>
+                    <Post key={post.id} value={post} setDeletePost={setDeletePost} openWindowNewPost={openWindowNewPost} ></Post>
                 )
                 }
             </div>

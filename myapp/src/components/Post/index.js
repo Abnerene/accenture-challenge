@@ -1,14 +1,14 @@
 import React, {} from "react";
 import './Post.css'
 
-export default function Post({value,setDeletePost}){
+export default function Post({value,setDeletePost,openWindowNewPost}){
     // https://source.unsplash.com/random/?${value.category}&${value.id}
     
     let postActions= ""
 
     if(value.userId===100){
         postActions = <div className="post-actions-container">
-                        <div className="post-action-button">🖋️</div>
+                        <div onClick={()=> openWindowNewPost(value.id) } className="post-action-button">🖋️</div>
                         <div onClick={()=> setDeletePost(value.id)} className="post-action-button">🗑️</div>
                        </div> 
     }
