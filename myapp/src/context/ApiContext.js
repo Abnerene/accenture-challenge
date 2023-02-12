@@ -2,11 +2,16 @@ import React, { useState, createContext, useEffect } from 'react'
 import axios from 'axios'
 import { CATEGORIES } from '../services/settings'
 export const ApiContext= createContext()
-const POSTS = JSON.stringify(localStorage.getItem('posts'))
+
+const POSTS = () =>{
+    return JSON.parse(localStorage.getItem('posts'))
+}
+
 
 export default function ApiContextProvider(props){
-    const [state,setState] = useState({POSTS})
+    const [state,setState] = useState({})
     const [loading,setLoading] = useState(true)
+    
     useEffect(() =>{
         // if(localStorage.getItem('posts')===null){
             setLoading(true)
@@ -14,15 +19,19 @@ export default function ApiContextProvider(props){
             .get("https://jsonplaceholder.typicode.com/posts")
             .then(response => {
                 
-                response.data.forEach(post=>{
-                    post.category = CATEGORIES[ Math.floor(Math.random() * CATEGORIES.length) ]
-                })
-
+                let posts = response.data.map((post,index)=>{   
+                    const p = Math.floor(Math.random() * CATEGORIES.length)                
+                    post.category = CATEGORIES[ p === 0?1:p ]
+                    return index < 12 ? post : false
+                    }
+                ).filter((value) => value)
+                console.log(posts)
+                
                 localStorage.setItem('posts',
-                JSON.stringify(response.data)
+                JSON.stringify(posts)
                 )
 
-                setState(response.data)
+                setState(POSTS())
                 setLoading(false)
             })
             .catch(error => {

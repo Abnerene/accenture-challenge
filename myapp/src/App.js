@@ -9,15 +9,16 @@ import ButtonNewPost from "./components/ButtonNewPost";
 function App() {
   
   const [windowNewPost,openWindowNewPost] = useState(false)
-  
+  const [filter,setFilter] = useState('all')
+
 
   return (
       <>
         <ApiContextProvider>
           <ButtonNewPost openWindowNewPost={openWindowNewPost}  />
           <NewPost  windowNewPost={windowNewPost} openWindowNewPost={openWindowNewPost} />
-          <Navbar />
-          <Posts />
+          <Navbar setFilter={setFilter}  />
+          <Posts filter={filter} />
         </ApiContextProvider>
       </>
   );

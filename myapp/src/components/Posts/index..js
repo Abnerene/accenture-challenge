@@ -4,17 +4,23 @@ import {Cube} from 'styled-loaders-react'
 import Post from "../Post";
 import './Posts.css'
 
-export default function Posts() {
+export default function Posts({filter}) {
     const {state, loading} = useContext(ApiContext)
     let content = null;
+   
     if(loading){
         content = <div> <Cube color="black" size="50px" /> </div>
     }else{
+        console.log(filter)
         content =(
             <div className="posts-container">
-                {state.map(result =>
-                    <Post key={result.id} value={result}></Post>
-                )}
+                {
+                state
+                .filter(post => filter === 'all' ? true: post.category === filter  )
+                .map(post =>
+                    <Post key={post.id} value={post}></Post>
+                )
+                }
             </div>
         ) 
     }

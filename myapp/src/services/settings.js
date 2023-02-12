@@ -1,1 +1,1 @@
-export const CATEGORIES=['All','Travel','Lifestyle','Bussines','Food','Work']
+export const CATEGORIES=['all','travel','lifestyle','bussines','food','work']

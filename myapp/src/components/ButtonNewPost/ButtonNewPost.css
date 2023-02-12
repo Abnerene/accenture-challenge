@@ -5,10 +5,20 @@
     height: 50px;
     position: fixed;
     bottom: 10vh;
-    right: 10%;
+    right: 5%;
     z-index: 100;
     border-radius: 50%;
-    content: 's';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    word-spacing: 0;
+   color: white;
+}
+
+.buttonNewPost::before{
+    color: white;
+    content: '🖋️';
 }
 
 .buttonNewPost:hover{
