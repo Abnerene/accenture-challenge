@@ -17,7 +17,7 @@ export default function NewPost({windowNewPost,openWindowNewPost}) {
         body: form.querySelector("input[name='description']").value,
         category: form.querySelector("select[name='category']").value,
         userId:100,
-        id:windowNewPost
+        id:windowNewPost>1?windowNewPost:false
     }
     setNewPost(data,openWindowNewPost)
      
